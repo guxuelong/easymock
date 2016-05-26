@@ -1,10 +1,11 @@
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+
+var HelloWorldPlugin = require('hello-world-plugin');
 //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'test');
-var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
-
+var APP_PATH = path.resolve(ROOT_PATH, 'dev');
+var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 module.exports = {
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
   entry: APP_PATH,
@@ -40,6 +41,7 @@ module.exports = {
   plugins: [
     new HtmlwebpackPlugin({
       title: 'EASY MOCK'
-    })
+    }),
+    new HelloWorldPlugin({options: true})
   ]
 };
